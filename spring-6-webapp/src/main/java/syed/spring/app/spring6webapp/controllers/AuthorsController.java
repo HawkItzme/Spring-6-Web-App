@@ -7,18 +7,16 @@ import syed.spring.app.spring6webapp.services.AuthorService;
 import syed.spring.app.spring6webapp.services.BookService;
 
 @Controller
-public class BookController {
-
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
+public class AuthorsController {
+    public AuthorsController(AuthorService authorService) {
+        this.authorService = authorService;
     }
 
-    private final BookService bookService;
+    private final AuthorService authorService;
 
-    @RequestMapping("/books")
-    public String getBooks(Model model) {
-        model.addAttribute("books", bookService.findAll());
-        return "books";
+    @RequestMapping("/authors")
+    public String getAuthors(Model model) {
+        model.addAttribute("authors", authorService.findAll());
+        return "authors";
     }
-
 }
